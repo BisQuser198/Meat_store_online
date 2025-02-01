@@ -1,0 +1,89 @@
+<!-- <html>
+    <head>
+        <title>Gothons of Planet Percal #25</title>
+    </head>
+    <body>
+    {% if greeting %}
+        I just wanted to say
+        <em style="color:green; font-size: 2em;">{{greeting}}</em.
+    {% else %}
+        <em>Hello</em>, world!
+    {% endif %}
+
+    </body>
+</html> -->
+
+<!-- <html>
+    <head>
+        <title>Gothons Of Planet Percal #25</title>
+    </head>
+<body>
+{% if greeting %}
+    I just wanted to say
+    <em style="color: green; font-size: 2em;">{{ greeting }}</em>.
+{% else %}
+    <em>Hello</em>, world!
+{% endif %}
+</body>
+</html> -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Store Management</title>
+</head>
+<body>
+    <h1>Store Management</h1>
+    <h2>Import Stock</h2>
+    <form action="{{ url_for('import_stock') }}" method="POST">
+        <input type="text" name="filename" placeholder="Enter filename">
+        <button type="submit">Import</button>
+    </form>
+
+    <h2>Add Product</h2>
+    <form action="{{ url_for('add_product') }}" method="POST">
+        <!-- Form fields to add a product -->
+        <input type="text" name="name" placeholder="Product Name">
+        <input type="text" name="category" placeholder="Category (meat_frozen, meat_fresh, meat_products)">
+        <input type="date" name="date_of_manufacture" placeholder="Date of Manufacture">
+        <input type="date" name="expiration_date" placeholder="Expiration Date">
+        <input type="number" step="0.01" name="price" placeholder="Price">
+        <input type="number" step="0.01" name="discount" placeholder="Discount" value="0">
+        <button type="submit">Add Product</button>
+    </form>
+
+    <h2>Sell Product</h2>
+    <form action="{{ url_for('sell_product') }}" method="POST">
+        <input type="text" name="product_id" placeholder="Product ID">
+        <button type="submit">Sell</button>
+    </form>
+
+    <h2>Update Stock</h2>
+    <form action="{{ url_for('update_stock') }}" method="POST">
+        <button type="submit">Update Stock</button>
+    </form>
+
+    <h2>Apply Discount</h2>
+    <form action="{{ url_for('apply_discount') }}" method="POST">
+        <button type="submit">Apply Discount</button>
+    </form>
+
+    <h2>Display Stock</h2>
+    <a href="{{ url_for('display_stock') }}">Display Stock</a>
+
+    <h2>Search Product</h2>
+    <form action="{{ url_for('search_product') }}" method="POST">
+        <input type="text" name="product_name" placeholder="Product Name">
+        <button type="submit">Search</button>
+    </form>
+
+    <h2>Save Stock</h2>
+    <form action="{{ url_for('save_stock') }}" method="POST">
+        <input type="text" name="filename" placeholder="Enter filename">
+        <button type="submit">Save</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Results</title>
+</head>
+<body>
+    <h1>Search Results for "{{ product_name }}"</h1>
+    {% if not products %}
+        <p>No product found with the name "{{ product_name }}"</p>
+    {% else %}
+        <ul>
+        {% for product_data in products %}
+            <li>ID: {{ product_data.product.id }}, Name: {{ product_data.product.name_of_product }},
+                Category: {{ product_data.product.category_of_product }}, Price: {{ product_data.product.price }},
+                Discount: {{ product_data.product.discount }}, Quantity: {{ product_data.quantity }}</li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+    <a href="{{ url_for('index') }}">Back to Home</a>
+</body>
+</html>
